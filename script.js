@@ -179,12 +179,24 @@ const weeklyPlans = {
     }
 };
 
-function loadPlan() {
-    const date = new Date(document.getElementById("datePicker").value);
-    const day = date.toLocaleDateString('en-US', { weekday: 'long' });
-    const plan = weeklyPlans[day];
+function checkDayMatch(date) {
+    const selectedDate = new Date(date);
+    const day = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
 
-    if (plan) {
+    if (weeklyPlans[day]) {
+        return day; // Return the matched day from the plan
+    } else {
+        return null; // No plan found for the selected day
+    }
+}
+
+// Load the meal plan and workouts for the selected day
+function loadPlan() {
+    const date = document.getElementById("datePicker").value;
+    const day = checkDayMatch(date); // Get the day based on the selected date
+
+    if (day) {
+        const plan = weeklyPlans[day];
         document.getElementById("dayTitle").textContent = `Plan for ${day}`;
 
         // Clear lists
@@ -224,8 +236,11 @@ function loadPlan() {
     }
 }
 
-// Set default date to today
+// Set default date to today and load the plan for that day
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("datePicker").value = new Date().toISOString().split('T')[0];
-    loadPlan();
+    loadPlan(); // Load the plan when the page is first loaded
+
+    // Add event listener for when the date is changed
+    document.getElementById("datePicker").addEventListener("change", loadPlan);
 });
