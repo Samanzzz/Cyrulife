@@ -179,7 +179,6 @@ const weeklyPlans = {
         ]
     }
 };
-
 // Function to check if today's date matches the selected day in the date picker
 function checkDayMatch(date) {
     const selectedDate = new Date(date);
@@ -216,6 +215,7 @@ function loadPlan() {
         `;
         let totalCalories = 0;
 
+        // Populate meals and calculate total calories
         for (let mealType in plan.meals) {
             plan.meals[mealType].forEach(meal => {
                 document.getElementById(mealType).innerHTML += `<li>${meal.food} - ${meal.quantity}</li>`;
@@ -224,7 +224,8 @@ function loadPlan() {
             });
         }
 
-        document.getElementById("totalCalories").textContent = totalCalories;
+        // Display total calories for the day
+        document.getElementById("totalCalories").textContent = `Total Calories: ${totalCalories}`;
 
         // Populate Workouts
         let workoutList = document.getElementById("workouts");
