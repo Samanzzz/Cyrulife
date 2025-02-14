@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Fitness Tracker</h1>
+        <input type="date" id="datePicker" onchange="loadPlan()">
+        
+        <div id="plan">
+            <h2 id="dayTitle">Loading...</h2>
+            <div class="section">
+                <h3>🥗 Meal Plan</h3>
+                <h4>🍳 Breakfast</h4>
+                <ul id="breakfast"></ul>
+                <h4>🥩 Lunch</h4>
+                <ul id="lunch"></ul>
+                <h4>🍏 Snack</h4>
+                <ul id="snack"></ul>
+                <h4>🍽 Dinner</h4>
+                <ul id="dinner"></ul>
+            </div>
+            <div class="section">
+                <h3>💪 Workout Plan</h3>
+                <ul id="workouts"></ul>
+            </div>
+            <div class="section">
+                <h3>🔥 Daily Calorie Breakdown</h3>
+                <table id="calorieTable">
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Quantity</th>
+                        <th>Calories</th>
+                    </tr>
+                </table>
+                <p><strong>Total Calories:</strong> <span id="totalCalories">0</span> kcal</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
