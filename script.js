@@ -181,23 +181,6 @@ const weeklyPlans = {
 };
 
 
-// Function to check if today's date matches the selected day in the date picker
-function checkDayMatch(date) {
-    const selectedDate = new Date(date);
-    
-    // Adjust the selected date to Pacific Time (Los Angeles)
-    const options = { timeZone: 'America/Los_Angeles' };
-    const pacificDate = new Date(selectedDate.toLocaleString('en-US', options));
-    
-    const day = pacificDate.toLocaleDateString('en-US', { weekday: 'long' });
-
-    if (weeklyPlans[day]) {
-        return day; // Return the matched day from the plan
-    } else {
-        return null; // No plan found for the selected day
-    }
-}
-
 // Function to get the current Pacific Time (Los Angeles)
 function getPacificTime() {
     const options = { 
@@ -209,6 +192,25 @@ function getPacificTime() {
     };
     const pacificTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
     return pacificTime;
+}
+
+// Function to get the weekday for the date in Pacific Time zone
+function getDayInPacific(date) {
+    const options = { timeZone: 'America/Los_Angeles', weekday: 'long' };
+    const pacificDate = new Date(date.toLocaleString('en-US', options));
+    return pacificDate.toLocaleDateString('en-US', { weekday: 'long' });
+}
+
+// Function to check if today's date matches the selected day in the date picker
+function checkDayMatch(date) {
+    const selectedDate = new Date(date);
+    const day = getDayInPacific(selectedDate); // Get the weekday based on Pacific Time
+
+    if (weeklyPlans[day]) {
+        return day; // Return the matched day from the plan
+    } else {
+        return null; // No plan found for the selected day
+    }
 }
 
 // Load the meal plan and workouts for the selected day
