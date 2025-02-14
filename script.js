@@ -179,6 +179,7 @@ const weeklyPlans = {
         ]
     }
 };
+
 // Function to check if today's date matches the selected day in the date picker
 function checkDayMatch(date) {
     const selectedDate = new Date(date);
@@ -189,6 +190,19 @@ function checkDayMatch(date) {
     } else {
         return null; // No plan found for the selected day
     }
+}
+
+// Function to get the current Pacific Time (Los Angeles)
+function getPacificTime() {
+    const options = { 
+        timeZone: 'America/Los_Angeles',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+    const pacificTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
+    return pacificTime;
 }
 
 // Load the meal plan and workouts for the selected day
@@ -237,6 +251,9 @@ function loadPlan() {
     } else {
         document.getElementById("dayTitle").textContent = "No Plan Found";
     }
+
+    // Display the Pacific Time
+    document.getElementById("pacificTime").textContent = `Pacific Time (Los Angeles): ${getPacificTime()}`;
 }
 
 // Set default date to today and load the plan for that day
