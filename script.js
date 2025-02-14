@@ -1,52 +1,180 @@
 const weeklyPlans = {
     "Sunday": {
-        meals: {
-            breakfast: [
-                { food: "Scrambled Eggs", quantity: "4 eggs", calories: 320 },
-                { food: "Avocado", quantity: "1 medium", calories: 240 }
+        "meals": {
+            "breakfast": [
+                { "food": "Scrambled Eggs", "quantity": "4 eggs", "calories": 320 },
+                { "food": "Avocado", "quantity": "1 medium", "calories": 240 }
             ],
-            lunch: [
-                { food: "Chicken Breast", quantity: "8 oz", calories: 376 },
-                { food: "Brown Rice", quantity: "1 cup", calories: 218 },
-                { food: "Steamed Broccoli", quantity: "1 cup", calories: 55 }
+            "lunch": [
+                { "food": "Chicken Breast", "quantity": "8 oz", "calories": 376 },
+                { "food": "Brown Rice", "quantity": "1 cup", "calories": 218 },
+                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
             ],
-            snack: [
-                { food: "Almonds", quantity: "1 handful", calories: 165 }
+            "snack": [
+                { "food": "Almonds", "quantity": "1 handful", "calories": 165 }
             ],
-            dinner: [
-                { food: "Salmon", quantity: "8 oz", calories: 460 },
-                { food: "Roasted Sweet Potatoes", quantity: "1 cup", calories: 180 },
-                { food: "Asparagus", quantity: "1 cup", calories: 40 }
+            "dinner": [
+                { "food": "Salmon", "quantity": "8 oz", "calories": 460 },
+                { "food": "Roasted Sweet Potatoes", "quantity": "1 cup", "calories": 180 },
+                { "food": "Asparagus", "quantity": "1 cup", "calories": 40 }
             ]
         },
-        workouts: [
-            { exercise: "Squats", quantity: "5 sets x 12 reps (bodyweight)" },
-            { exercise: "Push-ups", quantity: "4 sets x 15 reps" },
-            { exercise: "Brisk Walk", quantity: "30 min" }
+        "workouts": [
+            { "exercise": "Squats", "quantity": "5 sets x 12 reps (bodyweight)" },
+            { "exercise": "Push-ups", "quantity": "4 sets x 15 reps" },
+            { "exercise": "Brisk Walk", "quantity": "30 min" }
         ]
     },
     "Monday": {
-        meals: {
-            breakfast: [
-                { food: "Eggs", quantity: "3 eggs", calories: 240 },
-                { food: "Avocado", quantity: "1/2 medium", calories: 120 }
+        "meals": {
+            "breakfast": [
+                { "food": "Eggs", "quantity": "3 eggs", "calories": 240 },
+                { "food": "Avocado", "quantity": "1/2 medium", "calories": 120 }
             ],
-            lunch: [
-                { food: "Steak", quantity: "8 oz", calories: 600 },
-                { food: "Quinoa", quantity: "1 cup", calories: 222 }
+            "lunch": [
+                { "food": "Steak", "quantity": "8 oz", "calories": 600 },
+                { "food": "Quinoa", "quantity": "1 cup", "calories": 222 }
             ],
-            snack: [
-                { food: "Walnuts", quantity: "1 handful", calories: 185 }
+            "snack": [
+                { "food": "Walnuts", "quantity": "1 handful", "calories": 185 }
             ],
-            dinner: [
-                { food: "Chicken Breast", quantity: "8 oz", calories: 376 },
-                { food: "Brussels Sprouts", quantity: "1 cup", calories: 56 },
-                { food: "Mashed Sweet Potatoes", quantity: "1 cup", calories: 180 }
+            "dinner": [
+                { "food": "Chicken Breast", "quantity": "8 oz", "calories": 376 },
+                { "food": "Brussels Sprouts", "quantity": "1 cup", "calories": 56 },
+                { "food": "Mashed Sweet Potatoes", "quantity": "1 cup", "calories": 180 }
             ]
         },
-        workouts: [
-            { exercise: "Brisk Walk", quantity: "45 min" },
-            { exercise: "Jump Rope", quantity: "5 sets x 1 min" }
+        "workouts": [
+            { "exercise": "Brisk Walk", "quantity": "45 min" },
+            { "exercise": "Jump Rope", "quantity": "5 sets x 1 min" }
+        ]
+    },
+    "Tuesday": {
+        "meals": {
+            "breakfast": [
+                { "food": "Scrambled Eggs", "quantity": "3 eggs", "calories": 240 },
+                { "food": "Spinach", "quantity": "1 cup", "calories": 7 }
+            ],
+            "lunch": [
+                { "food": "Chicken Breast", "quantity": "8 oz", "calories": 376 },
+                { "food": "Roasted Carrots", "quantity": "1 cup", "calories": 50 },
+                { "food": "Brown Rice", "quantity": "1 cup", "calories": 218 }
+            ],
+            "snack": [
+                { "food": "Greek Yogurt", "quantity": "1 cup", "calories": 100 }
+            ],
+            "dinner": [
+                { "food": "Salmon", "quantity": "8 oz", "calories": 460 },
+                { "food": "Roasted Sweet Potatoes", "quantity": "1 cup", "calories": 180 },
+                { "food": "Green Beans", "quantity": "1 cup", "calories": 44 }
+            ]
+        },
+        "workouts": [
+            { "exercise": "Squats", "quantity": "5 sets x 12 reps (bodyweight)" },
+            { "exercise": "Push-ups", "quantity": "4 sets x 12 reps" },
+            { "exercise": "Walking Lunges", "quantity": "3 sets x 12 reps per leg" }
+        ]
+    },
+    "Wednesday": {
+        "meals": {
+            "breakfast": [
+                { "food": "Eggs", "quantity": "4 eggs", "calories": 320 },
+                { "food": "Avocado", "quantity": "1 medium", "calories": 240 }
+            ],
+            "lunch": [
+                { "food": "Beef Steak", "quantity": "8 oz", "calories": 600 },
+                { "food": "Quinoa", "quantity": "1 cup", "calories": 222 },
+                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
+            ],
+            "snack": [
+                { "food": "Almonds", "quantity": "1 handful", "calories": 165 }
+            ],
+            "dinner": [
+                { "food": "Chicken Breast", "quantity": "8 oz", "calories": 376 },
+                { "food": "Roasted Brussels Sprouts", "quantity": "1 cup", "calories": 56 },
+                { "food": "Mashed Sweet Potatoes", "quantity": "1 cup", "calories": 180 }
+            ]
+        },
+        "workouts": [
+            { "exercise": "Brisk Walk", "quantity": "45 min" },
+            { "exercise": "Jump Rope", "quantity": "5 sets x 1 min" }
+        ]
+    },
+    "Thursday": {
+        "meals": {
+            "breakfast": [
+                { "food": "Scrambled Eggs", "quantity": "3 eggs", "calories": 240 },
+                { "food": "Avocado", "quantity": "1/2 medium", "calories": 120 }
+            ],
+            "lunch": [
+                { "food": "Chicken Breast", "quantity": "8 oz", "calories": 376 },
+                { "food": "Roasted Sweet Potatoes", "quantity": "1 cup", "calories": 180 },
+                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
+            ],
+            "snack": [
+                { "food": "Walnuts", "quantity": "1 handful", "calories": 185 }
+            ],
+            "dinner": [
+                { "food": "Beef Steak", "quantity": "8 oz", "calories": 600 },
+                { "food": "Roasted Carrots", "quantity": "1 cup", "calories": 50 },
+                { "food": "Green Beans", "quantity": "1 cup", "calories": 44 }
+            ]
+        },
+        "workouts": [
+            { "exercise": "Squats", "quantity": "5 sets x 12 reps (bodyweight)" },
+            { "exercise": "Push-ups", "quantity": "4 sets x 12 reps" },
+            { "exercise": "Brisk Walk", "quantity": "30 min" }
+        ]
+    },
+    "Friday": {
+        "meals": {
+            "breakfast": [
+                { "food": "Eggs", "quantity": "3 eggs", "calories": 240 },
+                { "food": "Spinach", "quantity": "1 cup", "calories": 7 }
+            ],
+            "lunch": [
+                { "food": "Salmon", "quantity": "8 oz", "calories": 460 },
+                { "food": "Quinoa", "quantity": "1 cup", "calories": 222 },
+                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
+            ],
+            "snack": [
+                { "food": "Greek Yogurt", "quantity": "1 cup", "calories": 100 }
+            ],
+            "dinner": [
+                { "food": "Chicken Breast", "quantity": "8 oz", "calories": 376 },
+                { "food": "Roasted Brussels Sprouts", "quantity": "1 cup", "calories": 56 },
+                { "food": "Sweet Potatoes", "quantity": "1 cup", "calories": 180 }
+            ]
+        },
+        "workouts": [
+            { "exercise": "Brisk Walk", "quantity": "45 min" },
+            { "exercise": "Jump Rope", "quantity": "5 sets x 1 min" }
+        ]
+    },
+    "Saturday": {
+        "meals": {
+            "breakfast": [
+                { "food": "Scrambled Eggs", "quantity": "4 eggs", "calories": 320 },
+                { "food": "Avocado", "quantity": "1 medium", "calories": 240 }
+            ],
+            "lunch": [
+                { "food": "Beef Steak", "quantity": "8 oz", "calories": 600 },
+                { "food": "Roasted Sweet Potatoes", "quantity": "1 cup", "calories": 180 },
+                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
+            ],
+            "snack": [
+                { "food": "Almonds", "quantity": "1 handful", "calories": 165 }
+            ],
+            "dinner": [
+                { "food": "Salmon", "quantity": "8 oz", "calories": 460 },
+                { "food": "Roasted Carrots", "quantity": "1 cup", "calories": 50 },
+                { "food": "Green Beans", "quantity": "1 cup", "calories": 44 }
+            ]
+        },
+        "workouts": [
+            { "exercise": "Squats", "quantity": "5 sets x 12 reps (bodyweight)" },
+            { "exercise": "Push-ups", "quantity": "4 sets x 15 reps" },
+            { "exercise": "Brisk Walk", "quantity": "30 min" }
         ]
     }
 };
