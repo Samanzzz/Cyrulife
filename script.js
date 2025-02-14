@@ -179,6 +179,9 @@ const weeklyPlans = {
         ]
     }
 };
+
+
+
 // Function to check if today's date matches the selected day in the date picker
 function checkDayMatch(date) {
     const selectedDate = new Date(date);
@@ -236,7 +239,6 @@ function loadPlan() {
         document.getElementById("dayTitle").textContent = "No Plan Found";
     }
 }
-
 
 // Set default date to today and load the plan for that day
 document.addEventListener("DOMContentLoaded", () => {
