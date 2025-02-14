@@ -184,7 +184,7 @@ function checkDayMatch(date) {
     const selectedDate = new Date(date);
     const day = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
 
-    if (weeklyPlans[day+1]) {
+    if (weeklyPlans[day]) {
         return day; // Return the matched day from the plan
     } else {
         return null; // No plan found for the selected day
@@ -237,36 +237,6 @@ function loadPlan() {
     }
 }
 
-// Generate shopping list for the whole week
-function showShoppingList() {
-    const shoppingList = new Set();
-
-    // Loop through all days and all meals
-    for (let day in weeklyPlans) {
-        const plan = weeklyPlans[day];
-        for (let mealType in plan.meals) {
-            plan.meals[mealType].forEach(meal => {
-                shoppingList.add(meal.food); // Add food to the shopping list
-            });
-        }
-    }
-
-    const shoppingListContainer = document.getElementById("shoppingList");
-    shoppingListContainer.innerHTML = ""; // Clear previous list
-
-    // Populate the shopping list
-    shoppingList.forEach(item => {
-        shoppingListContainer.innerHTML += `<li>${item}</li>`;
-    });
-
-    // Show the modal
-    document.getElementById("shoppingListModal").style.display = "block";
-}
-
-// Close the shopping list modal
-function closeShoppingList() {
-    document.getElementById("shoppingListModal").style.display = "none";
-}
 
 // Set default date to today and load the plan for that day
 document.addEventListener("DOMContentLoaded", () => {
