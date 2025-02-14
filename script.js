@@ -1,4 +1,31 @@
 const weeklyPlans = {
+
+    "Saturday": {
+        "meals": {
+            "breakfast": [
+                { "food": "Scrambled Eggs", "quantity": "4 eggs", "calories": 320 },
+                { "food": "Avocado", "quantity": "1 medium", "calories": 240 }
+            ],
+            "lunch": [
+                { "food": "Beef Steak", "quantity": "8 oz", "calories": 600 },
+                { "food": "Roasted Sweet Potatoes", "quantity": "1 cup", "calories": 180 },
+                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
+            ],
+            "snack": [
+                { "food": "Almonds", "quantity": "1 handful", "calories": 165 }
+            ],
+            "dinner": [
+                { "food": "Salmon", "quantity": "8 oz", "calories": 460 },
+                { "food": "Roasted Carrots", "quantity": "1 cup", "calories": 50 },
+                { "food": "Green Beans", "quantity": "1 cup", "calories": 44 }
+            ]
+        },
+        "workouts": [
+            { "exercise": "Squats", "quantity": "5 sets x 12 reps (bodyweight)" },
+            { "exercise": "Push-ups", "quantity": "4 sets x 15 reps" },
+            { "exercise": "Brisk Walk", "quantity": "30 min" }
+        ]
+    },
     "Sunday": {
         "meals": {
             "breakfast": [
@@ -149,32 +176,6 @@ const weeklyPlans = {
         "workouts": [
             { "exercise": "Brisk Walk", "quantity": "45 min" },
             { "exercise": "Jump Rope", "quantity": "5 sets x 1 min" }
-        ]
-    },
-    "Saturday": {
-        "meals": {
-            "breakfast": [
-                { "food": "Scrambled Eggs", "quantity": "4 eggs", "calories": 320 },
-                { "food": "Avocado", "quantity": "1 medium", "calories": 240 }
-            ],
-            "lunch": [
-                { "food": "Beef Steak", "quantity": "8 oz", "calories": 600 },
-                { "food": "Roasted Sweet Potatoes", "quantity": "1 cup", "calories": 180 },
-                { "food": "Steamed Broccoli", "quantity": "1 cup", "calories": 55 }
-            ],
-            "snack": [
-                { "food": "Almonds", "quantity": "1 handful", "calories": 165 }
-            ],
-            "dinner": [
-                { "food": "Salmon", "quantity": "8 oz", "calories": 460 },
-                { "food": "Roasted Carrots", "quantity": "1 cup", "calories": 50 },
-                { "food": "Green Beans", "quantity": "1 cup", "calories": 44 }
-            ]
-        },
-        "workouts": [
-            { "exercise": "Squats", "quantity": "5 sets x 12 reps (bodyweight)" },
-            { "exercise": "Push-ups", "quantity": "4 sets x 15 reps" },
-            { "exercise": "Brisk Walk", "quantity": "30 min" }
         ]
     }
 };
