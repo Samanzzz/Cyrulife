@@ -179,30 +179,25 @@ const weeklyPlans = {
     }
 };
 
-// Function to get the current date in Pacific Time (Los Angeles)
-function getPacificDate() {
-    const options = {
-        timeZone: 'America/Los_Angeles',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    };
-    const formatter = new Intl.DateTimeFormat('en-US', options);
-    const formattedDate = formatter.format(new Date());
-    return formattedDate.split(',')[0]; // Return only the date part (MM/DD/YYYY)
+// Function to check if today's date matches the selected day in the date picker
+function checkDayMatch(date) {
+    const selectedDate = new Date(date);
+    const day = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+    if (weeklyPlans[day]) {
+        return day; // Return the matched day from the plan
+    } else {
+        return null; // No plan found for the selected day
+    }
 }
 
-// Function to load meal plan for the selected date
+// Load the meal plan and workouts for the selected day
 function loadPlan() {
-    const date = new Date(document.getElementById("datePicker").value);
-    const day = date.toLocaleDateString('en-US', { weekday: 'long' });
-    const plan = weeklyPlans[day];
+    const date = document.getElementById("datePicker").value;
+    const day = checkDayMatch(date); // Get the day based on the selected date
 
-    if (plan) {
+    if (day) {
+        const plan = weeklyPlans[day];
         document.getElementById("dayTitle").textContent = `Plan for ${day}`;
 
         // Clear lists
@@ -242,32 +237,11 @@ function loadPlan() {
     }
 }
 
-// Function to generate shopping list for the whole week
-function generateShoppingList() {
-    let shoppingList = [];
-    Object.keys(weeklyPlans).forEach(day => {
-        const plan = weeklyPlans[day];
-        Object.values(plan.meals).forEach(mealArray => {
-            mealArray.forEach(meal => {
-                shoppingList.push(`${meal.food} - ${meal.quantity}`);
-            });
-        });
-    });
-
-    const shoppingListDiv = document.getElementById("shoppingList");
-    shoppingListDiv.innerHTML = "<h3>Shopping List for the Week</h3>";
-    shoppingListDiv.innerHTML += "<ul>" + shoppingList.map(item => `<li>${item}</li>`).join("") + "</ul>";
-}
-
-// Set default date to today (Pacific Time)
+// Set default date to today and load the plan for that day
 document.addEventListener("DOMContentLoaded", () => {
-    const pacificDate = getPacificDate();
-    document.getElementById("datePicker").value = pacificDate;
-    loadPlan(); // Load the plan for the Pacific date
+    document.getElementById("datePicker").value = new Date().toISOString().split('T')[0];
+    loadPlan(); // Load the plan when the page is first loaded
 
     // Add event listener for when the date is changed
     document.getElementById("datePicker").addEventListener("change", loadPlan);
-
-    // Add event listener for shopping list button
-    document.getElementById("shoppingListButton").addEventListener("click", generateShoppingList);
 });
