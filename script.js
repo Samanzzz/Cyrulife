@@ -180,38 +180,35 @@ const weeklyPlans = {
     }
 };
 
-// Function to check if today's date matches the selected day in the date picker
-function checkDayMatch(date) {
-    const selectedDate = new Date(date);
-    const day = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
-
-    if (weeklyPlans[day]) {
-        return day; // Return the matched day from the plan
-    } else {
-        return null; // No plan found for the selected day
-    }
-}
-
-// Function to get the current Pacific Time (Los Angeles)
-function getPacificTime() {
-    const options = { 
+// Function to get the current date in Pacific Time (Los Angeles)
+function getPacificDate() {
+    const options = {
         timeZone: 'America/Los_Angeles',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: true
+        hour12: false
     };
-    const pacificTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
-    return pacificTime;
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+    const formattedDate = formatter.format(new Date());
+    return formattedDate.split(',')[0]; // Return only the date part (MM/DD/YYYY)
 }
 
-// Load the meal plan and workouts for the selected day
+// Adjust loadPlan to handle Pacific Time and get the correct day of the week
 function loadPlan() {
-    const date = document.getElementById("datePicker").value;
-    const day = checkDayMatch(date); // Get the day based on the selected date
+    const datePicker = document.getElementById("datePicker").value;
+    const date = new Date(datePicker);
+    
+    // Get the Pacific Time (Los Angeles) day using the adjusted date
+    const options = { weekday: 'long', timeZone: 'America/Los_Angeles' };
+    const day = new Intl.DateTimeFormat('en-US', options).format(date);
 
-    if (day) {
-        const plan = weeklyPlans[day];
+    const plan = weeklyPlans[day];
+
+    if (plan) {
         document.getElementById("dayTitle").textContent = `Plan for ${day}`;
 
         // Clear lists
@@ -229,7 +226,6 @@ function loadPlan() {
         `;
         let totalCalories = 0;
 
-        // Populate meals and calculate total calories
         for (let mealType in plan.meals) {
             plan.meals[mealType].forEach(meal => {
                 document.getElementById(mealType).innerHTML += `<li>${meal.food} - ${meal.quantity}</li>`;
@@ -238,8 +234,7 @@ function loadPlan() {
             });
         }
 
-        // Display total calories for the day
-        document.getElementById("totalCalories").textContent = `Total Calories: ${totalCalories}`;
+        document.getElementById("totalCalories").textContent = totalCalories;
 
         // Populate Workouts
         let workoutList = document.getElementById("workouts");
@@ -251,16 +246,17 @@ function loadPlan() {
     } else {
         document.getElementById("dayTitle").textContent = "No Plan Found";
     }
-
-    // Display the Pacific Time
-    document.getElementById("pacificTime").textContent = `Pacific Time (Los Angeles): ${getPacificTime()}`;
 }
 
-// Set default date to today and load the plan for that day
+// Set default date to today (Pacific Time)
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("datePicker").value = new Date().toISOString().split('T')[0];
-    loadPlan(); // Load the plan when the page is first loaded
+    const pacificDate = getPacificDate();
+    document.getElementById("datePicker").value = pacificDate;
+    loadPlan(); // Load the plan for the Pacific date
 
     // Add event listener for when the date is changed
     document.getElementById("datePicker").addEventListener("change", loadPlan);
+
+    // Add event listener for shopping list button
+    document.getElementById("shoppingListButton").addEventListener("click", generateShoppingList);
 });
