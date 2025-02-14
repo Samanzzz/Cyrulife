@@ -183,9 +183,11 @@ const weeklyPlans = {
 
 
 // Function to check if today's date matches the selected day in the date picker
+// Function to check if today's date matches the selected day in the date picker
 function checkDayMatch(date) {
     const selectedDate = new Date(date);
-    const day = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const day = daysOfWeek[selectedDate.getDay()];
 
     if (weeklyPlans[day]) {
         return day; // Return the matched day from the plan
