@@ -179,32 +179,10 @@ const weeklyPlans = {
         ]
     }
 };
-
-
-// Function to get the current Pacific Time (Los Angeles)
-function getPacificTime() {
-    const options = { 
-        timeZone: 'America/Los_Angeles',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-    };
-    const pacificTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
-    return pacificTime;
-}
-
-// Function to get the weekday for the date in Pacific Time zone
-function getDayInPacific(date) {
-    const options = { timeZone: 'America/Los_Angeles', weekday: 'long' };
-    const pacificDate = new Date(date.toLocaleString('en-US', options));
-    return pacificDate.toLocaleDateString('en-US', { weekday: 'long' });
-}
-
 // Function to check if today's date matches the selected day in the date picker
 function checkDayMatch(date) {
     const selectedDate = new Date(date);
-    const day = getDayInPacific(selectedDate); // Get the weekday based on Pacific Time
+    const day = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
 
     if (weeklyPlans[day]) {
         return day; // Return the matched day from the plan
@@ -237,7 +215,6 @@ function loadPlan() {
         `;
         let totalCalories = 0;
 
-        // Populate meals and calculate total calories
         for (let mealType in plan.meals) {
             plan.meals[mealType].forEach(meal => {
                 document.getElementById(mealType).innerHTML += `<li>${meal.food} - ${meal.quantity}</li>`;
@@ -246,8 +223,7 @@ function loadPlan() {
             });
         }
 
-        // Display total calories for the day
-        document.getElementById("totalCalories").textContent = `Total Calories: ${totalCalories}`;
+        document.getElementById("totalCalories").textContent = totalCalories;
 
         // Populate Workouts
         let workoutList = document.getElementById("workouts");
@@ -259,9 +235,37 @@ function loadPlan() {
     } else {
         document.getElementById("dayTitle").textContent = "No Plan Found";
     }
+}
 
-    // Display the Pacific Time
-    document.getElementById("pacificTime").textContent = `Pacific Time (Los Angeles): ${getPacificTime()}`;
+// Generate shopping list for the whole week
+function showShoppingList() {
+    const shoppingList = new Set();
+
+    // Loop through all days and all meals
+    for (let day in weeklyPlans) {
+        const plan = weeklyPlans[day];
+        for (let mealType in plan.meals) {
+            plan.meals[mealType].forEach(meal => {
+                shoppingList.add(meal.food); // Add food to the shopping list
+            });
+        }
+    }
+
+    const shoppingListContainer = document.getElementById("shoppingList");
+    shoppingListContainer.innerHTML = ""; // Clear previous list
+
+    // Populate the shopping list
+    shoppingList.forEach(item => {
+        shoppingListContainer.innerHTML += `<li>${item}</li>`;
+    });
+
+    // Show the modal
+    document.getElementById("shoppingListModal").style.display = "block";
+}
+
+// Close the shopping list modal
+function closeShoppingList() {
+    document.getElementById("shoppingListModal").style.display = "none";
 }
 
 // Set default date to today and load the plan for that day
