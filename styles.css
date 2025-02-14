@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h1, h2, h3, h4 {
+    color: #BB86FC;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.section {
+    background: #282828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #444;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    background: #333;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #555;
+}
+
+th {
+    background: #444;
+    color: white;
+}
+
+p {
+    font-size: 1.2em;
+}
