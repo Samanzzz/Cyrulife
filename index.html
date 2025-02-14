@@ -9,16 +9,10 @@
 <body>
     <div class="container">
         <h1>📅 Fitness Tracker</h1>
-        <input type="date" id="datePicker" onchange="loadPlan()">
         
-        <!-- Section for Pacific Time -->
-        <div id="pacificTimeContainer">
-            <p id="pacificTime">Pacific Time (Los Angeles): Loading...</p>
-        </div>
         
-        <!-- Meal and Workout Plan Section -->
         <div id="plan">
-            <h2 id="dayTitle">Loading...</h2>
+            <h2 id="dayTitle"><input type="date" id="datePicker" onchange="loadPlan()"></h2>
             <div class="section">
                 <h3>🥗 Meal Plan</h3>
                 <h4>🍳 Breakfast</h4>
